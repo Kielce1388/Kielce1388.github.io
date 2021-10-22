@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper
+        {
+            width: 400px;
+            height: 350px;
+        }
+    </style>
+    <script>
+        function change_photo (a)
+        {
+            document.images[0].src = document.images[a].src;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <img src="../images/HV.png" alt="" class="wrapper">
+    </div>
+    <div>
+        <img src="../images/Monki.png" alt="" width="132" height="100" onclick = "change_photo(1)">
+        <img src="../images/HV.png" alt="" width="132" height="100" onclick = "change_photo(2)"> 
+        <img src="../images/milkhouse.png" alt="" width="132" height="100" onclick = "change_photo(3)">
+    </div>
+</body>
+</html>

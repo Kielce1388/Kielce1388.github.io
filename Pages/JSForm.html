@@ -15,12 +15,6 @@
             console.log("Данные из текстовых полей: " + login+" " + pas + " " + email);
 
             //Обработка данных из блока с checkbox
-            // var mailing_console = false;
-            // document.registr.mailing.checked
-            // if (document.registr.mailing.checked)
-            // {
-            //     mailing_console = document.registr.mailing.value;
-            // }
             console.log("Данные из переключателей: " + document.registr.mailing.checked);
 
             //Обработка блока радио батона
@@ -32,6 +26,28 @@
                 }
             }
             console.log("Данные из гендеров: " + gender)
+
+            //Обработка блока select
+            var sity_en;
+            var sity_ru;
+            var index;
+            index = document.registr.sity.selectedIndex;
+            sity_en = document.registr.sity[index].value;
+            sity_ru = document.registr.sity[index].text;
+            console.log("Данные из выпадающего списка: " + index + " " + sity_en + " " + sity_ru)
+
+            //
+            if (gender == "m") 
+                text = "<h3>Уважаемый ";
+            else 
+                text = "<h3>Уважаемая"
+            text = text + login + ",prover'te dannie:</h3>";
+            text = text + "Password: " + pas + "<br>";
+            if (document.registr.mailing.checked)
+                text = text + "Information will be send to: " + email + "<br>";
+            text = text + "Budem radi videt' vas v nashem ofise v " + sity_ru;
+
+            document.getElementById("render_registr").innerHTML = text;
         }
     </script>
 </head>
@@ -72,18 +88,23 @@
                     Женский
                 </label><br>
                 
+                <div></div><br>
                 
-                
-                
-                
-                
-                
-                
+                <!-- Блок select -->
+                <div>Укажите город</div>
+                <select name="sity"> 
+                    <option value="Dubna">Дубна</option>
+                    <option value="Moskau">Москва</option>
+                    <option value="Saratov">Саратов</option>
+                </select>
+                <br>
                 
                 <div></div><br>
                 <div>
                     <button type="submit">Submit</button>
-                </div>
+                </div><br>
+
+                <div id = "render_registr"></div>
             </form>
         </div>
     </main>
