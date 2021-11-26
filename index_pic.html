@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .txtfield 
+        {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+        }
+    </style>
+
+    <script>
+        function add_txtar() 
+        {
+            let txtar_arr = [];
+            let count = document.getElementById("count").value;
+            for(i = 0; i < count; i++)
+            {
+                let tf = document.createElement("textarea");
+                tf.type = "text";
+                tf.className = "txtfield";
+                txtar_arr.push(tf);
+                document.getElementById("TextArea").appendChild(tf);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input placeholder = "enter number" type="text" id = "count">
+        <button onclick = "add_txtar()">Enter</button>
+        <div id = "TextArea">
+
+        </div>
+        <canvas width="500" height="500" id = "canvas"></canvas>
+    </div>
+    <!-- <script>
+        let canvas = document.getElementById("canvas");
+        let g = canvas.getContext("2d");
+        g.fillRect (10, 10, 50, 70);
+    </script> -->
+    <script>
+        var data = [ 16, 68, 20, 30, 54 ]; 
+        var canvas = document.getElementById("canvas");
+        var c = canvas.getContext("2d");
+        c.fillStyle = "gray"; 
+        c.fillRect(0,0,500,500);
+        c.fillStyle = "blue"; 
+        for(var i=0; i<data.length; i++) 
+        { 
+            var dp = data[i]; 
+            c.fillRect(25 + i*100, 500-dp*5 - 30, 50, dp*5); 
+        }
+        c.fillStyle = "black"; 
+        c.lineWidth = 2.0; 
+        c.beginPath(); 
+        c.moveTo(30,10); 
+        c.lineTo(30,460); 
+        c.lineTo(490,460); 
+        c.stroke();
+        c.fillStyle = "black"; 
+        for(var i=0; i<6; i++) 
+        { 
+            c.fillText((5-i)*20 + "",4, i*80+60); 
+            c.beginPath(); 
+            c.moveTo(25,i*80+60); 
+            c.lineTo(30,i*80+60); 
+            c.stroke(); 
+        }
+    </script>
+</body>
+</html>
